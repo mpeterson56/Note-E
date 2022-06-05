@@ -1,6 +1,6 @@
 const util = require("util");
 const fs = require("fs");
-
+const { v4: uuidv4 } = require("uuid");
 
 const { stringify } = require("querystring");
 const readFileAsync = util.promisify(fs.readFile);
@@ -38,17 +38,26 @@ class data {
     const { title, text } = note;
 
     if (!title || !text) {
-      throw new Error("Please Note: 'title' and 'text' cannot be blank");
+      throw new Error("'title' and 'text' cannot be blank");
     }
 
-    const newNote = { title, text };
+    const newNote = { title, text, id: uuidv4() };
     this.getNotes().then((result) => {
       const parsedNote = result;
       parsedNote.push(newNote);
       console.log(parsedNote);
       this.writeNotes(parsedNote);
     });
-  }};
+  }
+
+
+  removeNote(id) {
+    this.getNotes().then((notes) => {
+      const findNotes = notes.filter((note) => note.id !== id);
+      this.writeNotes(findNotes);
+    });
+  }
+};
 
 
 
