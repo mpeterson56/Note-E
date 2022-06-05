@@ -1,23 +1,15 @@
 {
-  "name": "note-e",
+  "name": "note-taker",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mpeterson56/Note-E.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mpeterson56/Note-E/issues"
-  },
-  "homepage": "https://github.com/mpeterson56/Note-E#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "jquery": "^3.6.0"
   }
 }
